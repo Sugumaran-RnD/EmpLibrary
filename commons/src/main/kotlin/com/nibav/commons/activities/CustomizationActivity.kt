@@ -543,10 +543,6 @@ class CustomizationActivity : BaseSimpleActivity() {
     }
 
     private fun pickPrimaryColor() {
-        if (!packageName.startsWith("com.nibav.", true) && baseConfig.appRunCount > 50) {
-            finish()
-            return
-        }
 
         curPrimaryLineColorPicker = LineColorPickerDialog(this, curPrimaryColor, true, toolbar = binding.customizationToolbar) { wasPositivePressed, color ->
             curPrimaryLineColorPicker = null

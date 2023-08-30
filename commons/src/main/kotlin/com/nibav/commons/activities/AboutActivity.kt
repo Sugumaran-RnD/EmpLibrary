@@ -22,7 +22,6 @@ import com.nibav.commons.compose.extensions.TransparentSystemBars
 import com.nibav.commons.compose.screens.*
 import com.nibav.commons.compose.theme.AppThemeSurface
 import com.nibav.commons.dialogs.ConfirmationAdvancedDialog
-import com.nibav.commons.dialogs.RateStarsDialog
 import com.nibav.commons.extensions.*
 import com.nibav.commons.helpers.*
 import com.nibav.commons.models.FAQItem
@@ -189,11 +188,11 @@ class AboutActivity : ComponentActivity() {
     }
 
     private fun launchRateUsPrompt() {
-        if (baseConfig.wasAppRated) {
+       /* if (baseConfig.wasAppRated) {
             redirectToRateUs()
         } else {
             RateStarsDialog(this@AboutActivity)
-        }
+        }*/
     }
 
     private fun onInviteClick() {
@@ -218,7 +217,7 @@ class AboutActivity : ComponentActivity() {
     }
 
     private fun onFacebookClick() {
-        var link = "https://www.facebook.com/nibav"
+        var link = "https://www.facebook.com/simplemobiletools"
         try {
             packageManager.getPackageInfo("com.facebook.katana", 0)
             link = "fb://page/150270895341774"
@@ -229,26 +228,26 @@ class AboutActivity : ComponentActivity() {
     }
 
     private fun onGithubClick() {
-        launchViewIntent("https://github.com/nibav")
+        launchViewIntent("https://github.com/SimpleMobileTools")
     }
 
     private fun onRedditClick() {
-        launchViewIntent("https://www.reddit.com/r/nibav")
+        launchViewIntent("https://www.reddit.com/r/SimpleMobileTools")
     }
 
 
     private fun onTelegramClick() {
-        launchViewIntent("https://t.me/nibav")
+        launchViewIntent("https://t.me/SimpleMobileTools")
     }
 
 
     private fun onWebsiteClick() {
-        launchViewIntent("https://nibav.com/")
+        launchViewIntent("https://simplemobiletools.com/")
     }
 
     private fun onPrivacyPolicyClick() {
         val appId = baseConfig.appId.removeSuffix(".debug").removeSuffix(".pro").removePrefix("com.nibav.")
-        val url = "https://nibav.com/privacy/$appId.txt"
+        val url = "https://simplemobiletools.com/privacy/$appId.txt"
         launchViewIntent(url)
     }
 
