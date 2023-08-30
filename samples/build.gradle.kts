@@ -46,7 +46,7 @@ android {
     sourceSets {
         getByName("main").java.srcDirs("src/main/kotlin")
     }
-    namespace = "com.simplemobiletools.commons.samples"
+    namespace = "com.nibav.commons.samples"
 
     lint {
         disable.add("Instantiatable")

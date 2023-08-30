@@ -8,7 +8,7 @@
     android:clickable="true"
     android:focusable="true">
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <com.nibav.commons.views.MyTextView
         android:id="@+id/manage_blocked_number_contact_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <com.nibav.commons.views.MyTextView
         android:id="@+id/manage_blocked_number_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
