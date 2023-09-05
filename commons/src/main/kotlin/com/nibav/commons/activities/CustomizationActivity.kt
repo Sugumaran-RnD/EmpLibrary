@@ -224,7 +224,6 @@ class CustomizationActivity : BaseSimpleActivity() {
 
         RadioGroupDialog(this@CustomizationActivity, items, curSelectedThemeId) {
             if (it == THEME_SHARED && !isThankYouInstalled()) {
-                PurchaseThankYouDialog(this)
                 return@RadioGroupDialog
             }
 
@@ -595,24 +594,20 @@ class CustomizationActivity : BaseSimpleActivity() {
     private fun getUpdatedTheme() = if (curSelectedThemeId == THEME_SHARED) THEME_SHARED else getCurrentThemeId()
 
     private fun applyToAll() {
-        if (isThankYouInstalled()) {
-            ConfirmationDialog(this, "", R.string.share_colors_success, R.string.ok, 0) {
-                Intent().apply {
-                    action = MyContentProvider.SHARED_THEME_ACTIVATED
-                    sendBroadcast(this)
-                }
-
-                if (!predefinedThemes.containsKey(THEME_SHARED)) {
-                    predefinedThemes[THEME_SHARED] = MyTheme(getString(R.string.shared), 0, 0, 0, 0)
-                }
-
-                baseConfig.wasSharedThemeEverActivated = true
-                binding.applyToAllHolder.beGone()
-                updateColorTheme(THEME_SHARED)
-                saveChanges(false)
+        ConfirmationDialog(this, "", R.string.share_colors_success, R.string.ok, 0) {
+            Intent().apply {
+                action = MyContentProvider.SHARED_THEME_ACTIVATED
+                sendBroadcast(this)
             }
-        } else {
-            PurchaseThankYouDialog(this)
+
+            if (!predefinedThemes.containsKey(THEME_SHARED)) {
+                predefinedThemes[THEME_SHARED] = MyTheme(getString(R.string.shared), 0, 0, 0, 0)
+            }
+
+            baseConfig.wasSharedThemeEverActivated = true
+            binding.applyToAllHolder.beGone()
+            updateColorTheme(THEME_SHARED)
+            saveChanges(false)
         }
     }
 
